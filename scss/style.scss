@@ -1,0 +1,240 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, img {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul, menu {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+%flex-center {
+    display          : -webkit-box;
+    display          : -ms-flexbox;
+    display          : flex;
+
+    -webkit-box-pack : center;
+    -ms-flex-pack    : center;
+    justify-content  : center;
+    -webkit-box-align: center;
+    -ms-flex-align   : center;
+    align-items      : center;
+    -ms-flex-wrap    : wrap;
+    flex-wrap        : wrap;
+}
+
+$base-color-red       : rgb(228, 81, 100);
+$base-color-light-grey: rgb(126, 126, 126);
+$base-color-dark-grey : rgb(39, 39, 39);
+
+html {
+    width: 100%;
+
+    background: $base-color-dark-grey;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+
+    @extend %flex-center;
+}
+
+.editor {
+    width : 506px;
+    height: 600px;
+
+    h1 {
+        font-family   : sans-serif;
+        font-size     : 24px;
+        font-weight   : bold;
+
+        width         : 100%;
+        margin-bottom : 50px;
+
+        text-align    : center;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        color         : rgb(230, 230, 230);
+    }
+
+    .editor-tools {
+        @extend %flex-center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack   : justify;
+        justify-content : space-between;
+
+        .line-width {
+            -webkit-box-sizing: border-box;
+            box-sizing        : border-box;
+            width             : 170px;
+            height            : 35px;
+
+            border            : 2px solid $base-color-red;
+            background        : $base-color-red;
+
+            @extend %flex-center;
+            -webkit-box-pack  : justify;
+            -ms-flex-pack     : justify;
+            justify-content   : space-between;
+
+            #lineWidthValue {
+                font-family : sans-serif;
+                font-size   : 18px;
+                font-weight : bold;
+
+                margin-right: 5px;
+
+                color       : $base-color-dark-grey;
+            }
+        }
+
+        input {
+            cursor: pointer;
+
+            &[type='range'] {
+                width             : 120px;
+                height            : 2px;
+
+                border            : none;
+                border-radius     : 8px;
+                background-color  : white;
+
+                -webkit-appearance: none;
+            }
+
+            &::-webkit-slider-thumb {
+                width             : 20px;
+                height            : 20px;
+
+                cursor            : pointer;
+
+                border            : 1px solid #bdc3c7;
+                border-radius     : 10px;
+                background-color  : #ecf0f1;
+
+                -webkit-appearance: none;
+
+                &:active {
+                    background-color: $base-color-light-grey;
+                }
+            }
+
+            &[type='color'] {
+                width             : 35px;
+                height            : 35px;
+                padding           : 0;
+
+                cursor            : pointer;
+
+                border            : 2px color $base-color-light-grey;
+                background-color  : #ecf0f1;
+
+                -webkit-appearance: none;
+
+                &::-webkit-color-swatch-wrapper {
+                    padding: 0;
+                }
+
+                &::-webkit-color-swatch {
+                    border: none;
+                }
+            }
+        }
+
+        input[type='button'],
+        a {
+            font-family       : sans-serif;
+            font-size         : 18px;
+            font-weight       : bold;
+
+            display           : -webkit-box;
+            display           : -ms-flexbox;
+            display           : flex;
+
+            width             : 100px;
+            height            : 35px;
+
+            cursor            : pointer;
+            -webkit-transition: .15s;
+            transition        : .15s;
+            text-decoration   : none;
+            letter-spacing    : 1px;
+            text-transform    : uppercase;
+
+            color             : rgb(39, 39, 39);
+            border            : none;
+            background        : $base-color-red;
+
+            -webkit-box-pack  : center;
+            -ms-flex-pack     : center;
+            justify-content   : center;
+            -webkit-box-align : center;
+            -ms-flex-align    : center;
+            align-items       : center;
+
+            &:hover {
+                letter-spacing: 3px;
+            }
+        }
+    }
+
+    .editor-canvas {
+        margin-top: 20px;
+
+        canvas {
+            cursor    : crosshair;
+
+            border    : 3px solid $base-color-red;
+            background: white;
+        }
+    }
+}

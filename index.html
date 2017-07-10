@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Some Site</title>
+        <link href="css/style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" defer src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" defer src="js/main.js"></script>
+        <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+    </head>
+    <body>
+        <section class="editor">
+            <h1>Canvas Simple Editor</h1>
+            <div class="editor-tools">
+                <div class="line-width">
+                    <input type="range" min="1" max="20" step="1" value="2" id="lineWidth">
+                    <span id="lineWidthValue"></span>
+                </div>
+                <input type="color" id="lineColor">
+                <input type="button" value="clear" id="clearCanvas">
+                <a id="saveCanvas" download="result.png">save</a>
+            </div>
+            <div class="editor-canvas">
+                <canvas id="simpleEditor" width="500" height="400"></canvas>
+            </div>
+        </section><!-- .editor -->
+    </body>
+</html>
