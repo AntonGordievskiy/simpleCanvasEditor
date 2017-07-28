@@ -1,2 +1,3 @@
-# simpleCanvasEditor
+## simpleCanvasEditor
 
+Download and use!
